@@ -25,6 +25,11 @@
           'CentOS Linux-7': '2.8.24',
           'default':  '3.0.7'
          }, grain='osfinger'),
+        'checksum':  salt['grains.filter_by']({
+          'CentOS-6': 'sha1=6f6333db6111badaa74519d743589ac4635eba7a',
+          'CentOS Linux-7': 'sha1=636efa8b522dfbf7f3dba372237492c11181f8e0',
+          'default':  'sha1=e56b4b7e033ae8dbf311f9191cf6fdf3ae974d1c'
+         }, grain='osfinger'),
         'logfile': '/var/log/redis/redis.log',
         'pidfile': '/var/run/redis.pid'
     },
