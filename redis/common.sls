@@ -6,9 +6,9 @@
 
 {% if install_from == 'source' %}
 
-{% if redis_settings.version is not none -%}
+{% if redis_settings.version is defined -%}
 {% set version = redis_settings.version -%}
-{% elif redis_settings.cfg_version is not none -%}
+{% elif redis_settings.cfg_version is defined -%}
 {% set version = redis_settings.cfg_version -%}
 {% else -%}
 {% set version = '2.8.8' -%}
