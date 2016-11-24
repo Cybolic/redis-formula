@@ -4,11 +4,11 @@
         'svc_name': 'redis-server',
         'cfg_name': '/etc/redis/redis.conf',
         'cfg_version': salt['grains.filter_by']({
-	  'wheezy': '2.4',
-	  'jessie': '2.8',
-	  'default': '2.8'
-	}, grain='oscodename'),
-	'logfile': '/var/log/redis/redis-server.log',
+          'wheezy': '2.4',
+          'jessie': '2.8',
+          'default': '2.8'
+        }, grain='oscodename'),
+    'logfile': '/var/log/redis/redis-server.log',
         'pidfile': '/var/run/redis/redis-server.pid'
     },
     'RedHat': {
@@ -20,10 +20,15 @@
           'CentOS Linux-7': '2.8',
           'default':  '3.0'
          }, grain='osfinger'),
+        'version':  salt['grains.filter_by']({
+          'CentOS-6': '3.2.5',
+          'CentOS Linux-7': '2.8',
+          'default':  '3.0'
+         }, grain='osfinger'),
         'logfile': '/var/log/redis/redis.log',
         'pidfile': '/var/run/redis.pid'
     },
-		'Arch': {
+    'Arch': {
         'pkg_name': 'redis',
         'svc_name': 'redis',
         'cfg_name': '/etc/redis.conf',
@@ -90,7 +95,7 @@
         'tcp_keepalive': 0,
         'unixsocketperm': 755,
         'user': 'redis'
-	}
+    }
 }%}
 
 {# Merge os_map into default_settings dictionary #}

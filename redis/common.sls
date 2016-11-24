@@ -5,16 +5,7 @@
 
 
 {% if install_from == 'source' %}
-
-{% if redis_settings.version is defined -%}
-{% set version = redis_settings.version -%}
-{% elif redis_settings.cfg_version is defined -%}
-{% set version = redis_settings.cfg_version -%}
-{% else -%}
-{% set version = '2.8.8' -%}
-{% endif %}
-
-
+{% set version = redis_settings.version|default('2.8.8') -%}
 {% set checksum = redis_settings.checksum|default('sha1=aa811f399db58c92c8ec5e48271d307e9ab8eb81') -%}
 {% set root = redis_settings.root|default('/usr/local') -%}
 
