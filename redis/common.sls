@@ -1,11 +1,11 @@
 {% from "redis/map.jinja" import redis_settings with context %}
 
 
-{% set install_from   = redis_settings.install_from -%} 
+{% set install_from   = redis_settings.install_from -%}
 
 
 {% if install_from == 'source' %}
-{% set version = redis_settings.version|default('2.8.8') -%}
+{% set version = redis_settings.version|redis_settings.cfg_version|default('2.8.8') -%}
 {% set checksum = redis_settings.checksum|default('sha1=aa811f399db58c92c8ec5e48271d307e9ab8eb81') -%}
 {% set root = redis_settings.root|default('/usr/local') -%}
 
